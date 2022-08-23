@@ -1,0 +1,28 @@
+service: aws-node-express-api-project
+frameworkVersion: '3'
+
+custom:
+  bucket: my-bucket-files
+
+provider:
+  name: aws
+  region: eu-west-1
+  environment:
+    BUCKET: ume-hackathon
+  runtime: nodejs14.x
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource: "*"
+
+
+functions:
+  api:
+    handler: handler.handler
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-offline
+
