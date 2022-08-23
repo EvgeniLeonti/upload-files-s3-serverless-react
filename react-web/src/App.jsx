@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
 const UPLOAD_ENDPOINT = 'http://localhost:4000/upload';
